@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/index.css">
+
+    <style>
+     
+        #posSection {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login Section -->
+    <div class="login">
+        <div class="wrap" id="wrap">
+            <form id="loginForm">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required id="username">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required id="password">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="container">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn" id="btn">Login</button>
+                <div class="register">
+                    <p>Don't have an account? <a href="#">Register.</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- DashBord Section -->
+    <div id="posSection">
+        <h1>Welcome to POS Dashboard</h1>
+        <p>This is your POS system main page.</p>
+    </div>
+
+    
+    <script src=""></script>
+
+   
+    <!-- <script src="../js/index.js"></script> -->
+
+    
+    <script>
+        $('#loginForm').on('submit', function (event) {
+            event.preventDefault(); // stop page reload
+
+            const user = $('#username').val().trim();
+            const pass = $('#password').val().trim();
+
+            if (user === "admin" && pass === "1234") {
+                $('.login').hide();
+                $('#posSection').show();
+            } else {
+                alert("Invalid credentials");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
