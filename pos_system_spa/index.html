@@ -18,9 +18,13 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/style.css">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
@@ -55,31 +59,48 @@
     <div id="posSection">
         <!-- Sidebar -->
         <div class="sidebar">
-            <h2 class="text-center mb-4">
-                <i class="fas fa-tachometer-alt"></i> Dashboard
-            </h2>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" id="btn_customer">
-                        <i class="fa-solid fa-user-group"></i> Customer
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#editProfileModal" data-bs-toggle="modal" id="btn_items">
-                        <i class="fa-solid fa-box-open"></i> Items
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#changePasswordModal" data-bs-toggle="modal" id="btn_orders">
-                        <i class="fa-solid fa-receipt"></i> Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#logoutModal" data-bs-toggle="modal">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
-                </li>
-            </ul>
+            <div id="dash">
+                <h2 class="text-center mb-4">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </h2>
+            </div>
+
+            <div id="btn">
+                <ul class="nav flex-column">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="btn_dashbord">
+                            <i class="fas fa-tachometer-alt"></i> DashBord
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" id="btn_customer">
+                            <i class="fa-solid fa-user-group"></i> Customer
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" id="btn_items">
+                            <i class="fa-solid fa-box-open"></i> Items
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" id="btn_cart">
+                            <i class="fas fa-shopping-cart"></i> cart
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" id="btn_orders">
+                            <i class="fa-solid fa-receipt"></i> Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" id="logoutModal">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <!-- Main Content -->
@@ -121,28 +142,28 @@
                                         <td>
                                             <span class="status-badge status-active">Active</span>
                                         </td>
-                                        <td>2023-10-01</td>
+                                        <td>2025-11-01</td>
                                     </tr>
                                     <tr>
                                         <td>Item Management</td>
                                         <td>
                                             <span class="status-badge status-active">Active</span>
                                         </td>
-                                        <td>2023-10-02</td>
+                                        <td>2025-11-02</td>
                                     </tr>
                                     <tr>
                                         <td>Orders Management</td>
                                         <td>
                                             <span class="status-badge status-active">Active</span>
                                         </td>
-                                        <td>2023-09-28</td>
+                                        <td>2025-11-28</td>
                                     </tr>
                                     <tr>
                                         <td>Analytics Dashboard</td>
                                         <td>
                                             <span class="status-badge status-inactive">Pending</span>
                                         </td>
-                                        <td>2023-09-25</td>
+                                        <td>2025-11-25</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -189,17 +210,17 @@
             <h2><i class="fa-solid fa-user-group"></i> Customer Management</h2>
 
             <form id="customerForm">
-                <input type="text" id="cusId" placeholder="Customer ID" required>
+                <input type="text" id="cusId" placeholder="Customer ID" readonly>
                 <input type="text" id="cusName" placeholder="Customer Name" required>
                 <input type="text" id="cusAddress" placeholder="Address" required>
                 <input type="text" id="cusPhone" placeholder="Phone Number" required>
             </form>
 
             <div class="btn-container">
-                <button class="btn-save"><i class="fa-solid fa-save"></i> Save</button>
-                <button class="btn-update"><i class="fa-solid fa-pen"></i> Update</button>
-                <button class="btn-delete"><i class="fa-solid fa-trash"></i> Delete</button>
-                <button class="btn-reset"><i class="fa-solid fa-rotate"></i> Reset</button>
+                <button class="btn-save" id="customer_save_btn"><i class="fa-solid fa-save"></i> Save</button>
+                <button class="btn-update" id="customer_update_btn"><i class="fa-solid fa-pen"></i> Update</button>
+                <button class="btn-delete" id="customer_delete_btn"><i class="fa-solid fa-trash"></i> Delete</button>
+                <button class="btn-reset" id="customer_reset_btn"><i class="fa-solid fa-rotate"></i> Reset</button>
             </div>
 
             <table id="tblCustomers">
@@ -242,17 +263,17 @@
             <h2><i class="fa-solid fa-box-open"></i> Items Management</h2>
 
             <form id="itemsForm">
-                <input type="text" id="itemId" placeholder="Item ID" required>
+                <input type="text" id="itemId" placeholder="Item ID" readonly>
                 <input type="text" id="itemName" placeholder="Item Name" required>
                 <input type="text" id="itemPrice" placeholder="Price" required>
                 <input type="text" id="itemQty" placeholder="Quantity" required>
             </form>
 
             <div class="btn-container">
-                <button class="btn-save"><i class="fa-solid fa-save"></i> Save</button>
-                <button class="btn-update"><i class="fa-solid fa-pen"></i> Update</button>
-                <button class="btn-delete"><i class="fa-solid fa-trash"></i> Delete</button>
-                <button class="btn-reset"><i class="fa-solid fa-rotate"></i> Reset</button>
+                <button class="btn-save" id="item_save_btn"><i class="fa-solid fa-save"></i> Save</button>
+                <button class="btn-update" id="item_update_btn"><i class="fa-solid fa-pen"></i> Update</button>
+                <button class="btn-delete" id="item_delete_btn"><i class="fa-solid fa-trash"></i> Delete</button>
+                <button class="btn-reset" id="item_reset_btn"><i class="fa-solid fa-rotate"></i> Reset</button>
             </div>
 
             <table id="tblItems">
@@ -264,7 +285,7 @@
                         <th>Quantity</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="item_tbl_body">
                     <tr>
                         <td>I001</td>
                         <td>Notebook</td>
@@ -282,70 +303,232 @@
         </div>
     </div>
 
+    <!-- ================ Cart Management =============== -->
+    <div id="all">
+
+        <div class="order-container">
+
+            <h2><i class="fas fa-shopping-cart"></i> Cart Management</h2>
+
+            <!-- Customer & Item Inputs -->
+            <div class="order-inputs">
+
+                <!-- NEW: ORDER ID FIELD -->
+                <div class="input-group">
+                    <label for="orderId">Order ID</label>
+                    <input type="text" id="orderId" value="" readonly>
+                </div>
+
+                <div class="input-group">
+                    <label for="customer">Customer</label>
+                    <select id="Customer">
+                        <option value="">Select Customer</option>
+                        <option value="C001">Adeepa</option>
+                        <option value="C002">Kokila</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="item">Item</label>
+                    <select id="item">
+                        <option value="">Select Item</option>
+                        <option value="" data-price="">Notebook</option>
+                        <option value="" data-price="">Pen</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" min="1" value="1 ">
+                </div>
+
+                <div class="input-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" readonly value="0">
+                </div>
+
+                <div class="input-group">
+                    <label for="orderDate">Order Date</label>
+                    <input type="date" id="orderDate">
+                </div>
+
+                <button class="btn-add" id="add_to_cart">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+
+            <!-- Cart Table -->
+            <div class="cart-table-container">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Order Date</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart_body"></tbody>
+                </table>
+
+                <div class="cart-footer">
+                    <strong>Grand Total: LKR.<span id="grand_total">0</span></strong>
+
+                    <div style="margin-top: 15px;">
+                        <label for="payment"><b>Payment Amount (LKR):</b></label>
+                        <input type="number" id="payment">
+
+                        <label for="balance"><b>Balance (LKR):</b></label>
+                        <input type="number" id="balance" readonly>
+                    </div>
+
+                    <button class="btn-place" id="place_order">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================orders list====================== -->
+    <div id="order">
+        <div class="order-table-container">
+
+            <h2><i class="fa-solid fa-receipt"></i> Orders List</h2>
+
+
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Order Date</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="order_body">
+
+                    <tr>
+                        <td>O001</td>
+                        <td>John Doe</td>
+                        <td>Notebook</td>
+                        <td>2</td>
+                        <td>150</td>
+                        <td>2025-11-14</td>
+                        <td>300</td>
+                    </tr>
+
+
+                </tbody id="order_table_body">
+            </table>
 
 
 
-    <!-- =====script===== -->
+            <!-- =====script===== -->
 
-    <script src="./assets/lib/jquery-3.6.0.min.js"></script>
-    <script type="module" src="./controller/CustomerController.js"></script>
-
-    <!-- <script src="../js/index.js"></script> -->
-
-
-    <script>
-        $('#loginForm').on('submit', function (event) {
-            event.preventDefault(); // stop page reload
-
-            const user = $('#username').val().trim();
-            const pass = $('#password').val().trim();
-
-            if (user === "admin" && pass === "1234") {
-                $('.login').hide();
-                $('#posSection').show();
-            } else {
-                alert("Invalid credentials");
-            }
-        });
-
-        $('#btn_customer').on('click', function () {
-            $('.main-content').hide();
-            $('#items').hide();
-            $('#customer').show();
-
-            customer.css('animation', 'none');
-            customer[0].offsetHeight; // force reflow
-            customer.css('animation', 'fadeIn 0.6s ease-in-out');
-        })
-
-        $('#btn_back_dash').on('click', function () {
+            <script src="./assets/lib/jquery-3.6.0.min.js"></script>
+            <script type="module" src="./controller/CustomerController.js"></script>
+            <script type="module" src="./controller/ItemController.js"></script>
+            <script type="module" src="./controller/PlaceOrderController.js"></script>
+             <script type="module" src="./controller/OrderController.js"></script>
 
 
-            $('#customer').hide();
-            $('.main-content').show();
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-            
 
-        })
+            <!-- <script src="../js/index.js"></script> -->
 
-        $('#btn_items').on('click', function () {
-            $('.main-content').hide();
-            $('#items').hide();
-            $('#items').show();
-            
-        });
 
-        $('#btn_back_dash_items').on('click', function () {
+            <script>
+                $('#loginForm').on('submit', function (event) {
+                    event.preventDefault(); // stop page reload
+                    $('#posSection').hide();
 
-            $('#items').hide();
-            $('.main-content').show();
+                    const user = $('#username').val().trim();
+                    const pass = $('#password').val().trim();
 
-        })
+                    if (user === "admin" && pass === "1234") {
+                        $('.login').hide();
+                        $('#posSection').show();
+                    } else {
+                        alert("Invalid credentials");
+                    }
+                });
+
+                $('#btn_customer').on('click', function () {
+                    $('.main-content').hide();
+                    $('#items').hide();
+                    $('#all').hide();
+                    $('#order').hide();
+                    $('#customer').show();
+
+                    customer.css('animation', 'none');
+                    customer[0].offsetHeight; // force reflow
+                    customer.css('animation', 'fadeIn 0.6s ease-in-out');
+                })
+
+                $('#btn_back_dash').on('click', function () {
+
+
+                    $('#customer').hide();
+                    $('.main-content').show();
 
 
 
+                })
 
-    </script>
+                $('#btn_items').on('click', function () {
+                    $('.main-content').hide();
+                    $('#customer').hide();
+                    $('#all').hide();
+                    $('#order').hide();
+                    $('#items').show();
+
+                });
+
+                $('#btn_back_dash_items').on('click', function () {
+
+                    $('#items').hide();
+                    $('.main-content').show();
+
+                })
+
+                $('#btn_cart').on('click', function () {
+                    $('#all').show();
+                    $('.main-content').hide();
+                    $('#customer').hide();
+                    $('#items').hide();
+                    $('#order').hide();
+
+
+                });
+
+                $('#btn_dashbord').on('click', function () {
+                    $('.main-content').show();
+                    $('#customer').hide();
+                    $('#items').hide();
+                    $('#all').hide();
+                    $('#order').hide();
+
+                });
+
+                $('#btn_orders').on('click', function () {
+                    $('#order').show();
+                    $('.main-content').hide();
+                    $('#customer').hide();
+                    $('#items').hide();
+                    $('#all').hide();
+
+
+
+                });
+
+            </script>
 
 </body>
 
